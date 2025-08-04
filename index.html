@@ -309,7 +309,28 @@ at Knowde Group, Inc., a Canadian-based global Contract Research Organization (r
 
 
 
-               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -461,10 +482,91 @@ at Knowde Group, Inc., a Canadian-based global Contract Research Organization (r
             text-decoration: underline;
         }
 
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-contact:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .floating-contact::before {
+            content: '💬';
+            font-size: 18px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0px);
+            }
+            50% {
+                transform: translateY(-50%) translateX(-5px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.7), 0 0 0 10px rgba(102, 126, 234, 0.1);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            }
+        }
+
+        .floating-contact.pulse {
+            animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .floating-contact {
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            
+            .floating-contact::before {
+                font-size: 16px;
+            }
+        }
+
         @media (max-width: 600px) {
             .contact-container {
                 margin: 10px;
                 padding: 30px 20px;
+            }
+            
+            .floating-contact {
+                right: 15px;
+                padding: 10px 15px;
+                font-size: 12px;
+                border-radius: 40px;
             }
         }
     </style>
@@ -477,7 +579,7 @@ at Knowde Group, Inc., a Canadian-based global Contract Research Organization (r
             Thank you! Your message has been sent successfully.
         </div>
 
-        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/xpwlyqpw" method="POST">
             <div class="form-group">
                 <label for="name">Name *</label>
                 <input type="text" id="name" name="name" required>
@@ -638,3 +740,7 @@ at Knowde Group, Inc., a Canadian-based global Contract Research Organization (r
     </script>
 </body>
 </html>
+
+               
+
+               
